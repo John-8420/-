@@ -1,0 +1,793 @@
+using System;
+using System.Data;
+using System.logistic.managementter;
+using System.Data.SqlClient;
+using logistic.management.warning.Entity;
+using logistic.management.warning.I;
+using logistic.management.warning.DBFactory;
+namespace logistic.management.warning.SqlServer
+{
+    public partial class logistic.managementter
+    {
+        public int Insert(logistic.managementter)
+        {
+            string sqlCommand = "logistic.managementterInsert";
+            int res;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@em_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_number",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_name",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_evername",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_gender",SqlDbType.Int),
+			new Sqlcon.warning("@em_birth",SqlDbType.DateTime),
+			new Sqlcon.warning("@em_marriage",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_n_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_na_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_p_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_stature",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_avoirdupois",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_v_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_statuscard",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_health",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_bloodtype",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_phone",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_mobile",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_email",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_finishschool",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_speciality",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_l_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_graduatetime",SqlDbType.DateTime),
+			new Sqlcon.warning("@em_degree",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_language",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_languagelevel",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_languageletter",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_computerlevel",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_computerletter",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_computergood",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_mandarinlevel",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_familyaddress",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_postalcode",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_address",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_familyphone",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_addresspostalcode",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_familycircs",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_recordlocus",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_jobname",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_whenjoinwork",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_whenthiswork",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_addlength",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_thisunitlength",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_dept_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_duty",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_remark",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_bookerid",SqlDbType.Int),
+			new Sqlcon.warning("@em_registertime",SqlDbType.DateTime),
+			new Sqlcon.warning("@em_photo",SqlDbType.VarChar)
+			};
+            param[0].Direction = con.warningDirection.Output;
+            param[1].Value = logistic.managementter.em_number;
+            param[2].Value = logistic.managementter.em_name;
+            param[3].Value = logistic.managementter.em_evername;
+            param[4].Value = logistic.managementter.em_gender;
+            param[5].Value = logistic.managementter.em_birth;
+            param[6].Value = logistic.managementter.em_marriage;
+            param[7].Value = logistic.managementter.em_n_id;
+            param[8].Value = logistic.managementter.em_na_id;
+            param[9].Value = logistic.managementter.em_p_id;
+            param[10].Value = logistic.managementter.em_stature;
+            param[11].Value = logistic.managementter.em_avoirdupois;
+            param[12].Value = logistic.managementter.em_v_id;
+            param[13].Value = logistic.managementter.em_statuscard;
+            param[14].Value = logistic.managementter.em_health;
+            param[15].Value = logistic.managementter.em_bloodtype;
+            param[16].Value = logistic.managementter.em_phone;
+            param[17].Value = logistic.managementter.em_mobile;
+            param[18].Value = logistic.managementter.em_email;
+            param[19].Value = logistic.managementter.em_finishschool;
+            param[20].Value = logistic.managementter.em_speciality;
+            param[21].Value = logistic.managementter.em_l_id;
+            param[22].Value = logistic.managementter.em_graduatetime;
+            param[23].Value = logistic.managementter.em_degree;
+            param[24].Value = logistic.managementter.em_language;
+            param[25].Value = logistic.managementter.em_languagelevel;
+            param[26].Value = logistic.managementter.em_languageletter;
+            param[27].Value = logistic.managementter.em_computerlevel;
+            param[28].Value = logistic.managementter.em_computerletter;
+            param[29].Value = logistic.managementter.em_computergood;
+            param[30].Value = logistic.managementter.em_mandarinlevel;
+            param[31].Value = logistic.managementter.em_familyaddress;
+            param[32].Value = logistic.managementter.em_postalcode;
+            param[33].Value = logistic.managementter.em_address;
+            param[34].Value = logistic.managementter.em_familyphone;
+            param[35].Value = logistic.managementter.em_addresspostalcode;
+            param[36].Value = logistic.managementter.em_familycircs;
+            param[37].Value = logistic.managementter.em_recordlocus;
+            param[38].Value = logistic.managementter.em_jobname;
+            param[39].Value = logistic.managementter.em_whenjoinwork;
+            param[40].Value = logistic.managementter.em_whenthiswork;
+            param[41].Value = logistic.managementter.em_addlength;
+            param[42].Value = logistic.managementter.em_thisunitlength;
+            param[43].Value = logistic.managementter.em_dept_id;
+            param[44].Value = logistic.managementter.em_duty;
+            param[45].Value = logistic.managementter.em_remark;
+            param[46].Value = logistic.managementter.em_bookerid;
+            param[47].Value = logistic.managementter.em_registertime;
+            param[48].Value = logistic.managementter.em_photo;
+            res = SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+            logistic.managementter.em_id = ((param[0].Value) == DBNull.Value) ? 0 : Convert.ToInt32(param[0].Value);
+            return res;
+        }
+        public int Insert(SqlTransaction sp, logistic.managementter logistic.managementter)
+        {
+            string sqlCommand = "logistic.managementterInsert";
+            int res;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@em_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_number",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_name",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_evername",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_gender",SqlDbType.Int),
+			new Sqlcon.warning("@em_birth",SqlDbType.DateTime),
+			new Sqlcon.warning("@em_marriage",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_n_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_na_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_p_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_stature",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_avoirdupois",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_v_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_statuscard",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_health",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_bloodtype",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_phone",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_mobile",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_email",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_finishschool",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_speciality",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_l_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_graduatetime",SqlDbType.DateTime),
+			new Sqlcon.warning("@em_degree",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_language",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_languagelevel",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_languageletter",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_computerlevel",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_computerletter",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_computergood",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_mandarinlevel",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_familyaddress",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_postalcode",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_address",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_familyphone",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_addresspostalcode",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_familycircs",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_recordlocus",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_jobname",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_whenjoinwork",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_whenthiswork",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_addlength",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_thisunitlength",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_dept_id",SqlDbType.Int),
+			new Sqlcon.warning("@em_duty",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_remark",SqlDbType.VarChar),
+			new Sqlcon.warning("@em_bookerid",SqlDbType.Int),
+			new Sqlcon.warning("@em_registertime",SqlDbType.DateTime),
+			new Sqlcon.warning("@em_photo",SqlDbType.VarChar)
+			};
+            param[0].Direction = con.warningDirection.Output;
+            param[1].Value = logistic.managementter.em_number;
+            param[2].Value = logistic.managementter.em_name;
+            param[3].Value = logistic.managementter.em_evername;
+            param[4].Value = logistic.managementter.em_gender;
+            param[5].Value = logistic.managementter.em_birth;
+            param[6].Value = logistic.managementter.em_marriage;
+            param[7].Value = logistic.managementter.em_n_id;
+            param[8].Value = logistic.managementter.em_na_id;
+            param[9].Value = logistic.managementter.em_p_id;
+            param[10].Value = logistic.managementter.em_stature;
+            param[11].Value = logistic.managementter.em_avoirdupois;
+            param[12].Value = logistic.managementter.em_v_id;
+            param[13].Value = logistic.managementter.em_statuscard;
+            param[14].Value = logistic.managementter.em_health;
+            param[15].Value = logistic.managementter.em_bloodtype;
+            param[16].Value = logistic.managementter.em_phone;
+            param[17].Value = logistic.managementter.em_mobile;
+            param[18].Value = logistic.managementter.em_email;
+            param[19].Value = logistic.managementter.em_finishschool;
+            param[20].Value = logistic.managementter.em_speciality;
+            param[21].Value = logistic.managementter.em_l_id;
+            param[22].Value = logistic.managementter.em_graduatetime;
+            param[23].Value = logistic.managementter.em_degree;
+            param[24].Value = logistic.managementter.em_language;
+            param[25].Value = logistic.managementter.em_languagelevel;
+            param[26].Value = logistic.managementter.em_languageletter;
+            param[27].Value = logistic.managementter.em_computerlevel;
+            param[28].Value = logistic.managementter.em_computerletter;
+            param[29].Value = logistic.managementter.em_computergood;
+            param[30].Value = logistic.managementter.em_mandarinlevel;
+            param[31].Value = logistic.managementter.em_familyaddress;
+            param[32].Value = logistic.managementter.em_postalcode;
+            param[33].Value = logistic.managementter.em_address;
+            param[34].Value = logistic.managementter.em_familyphone;
+            param[35].Value = logistic.managementter.em_addresspostalcode;
+            param[36].Value = logistic.managementter.em_familycircs;
+            param[37].Value = logistic.managementter.em_recordlocus;
+            param[38].Value = logistic.managementter.em_jobname;
+            param[39].Value = logistic.managementter.em_whenjoinwork;
+            param[40].Value = logistic.managementter.em_whenthiswork;
+            param[41].Value = logistic.managementter.em_addlength;
+            param[42].Value = logistic.managementter.em_thisunitlength;
+            param[43].Value = logistic.managementter.em_dept_id;
+            param[44].Value = logistic.managementter.em_duty;
+            param[45].Value = logistic.managementter.em_remark;
+            param[46].Value = logistic.managementter.em_bookerid;
+            param[47].Value = logistic.managementter.em_registertime;
+            param[48].Value = logistic.managementter.em_photo;
+            res = SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+            logistic.managementter.em_id = ((param[0].Value) == DBNull.Value) ? 0 : Convert.ToInt32(param[0].Value);
+            return res;
+        }
+        public int Update(logistic.managementter logistic.managementter)
+        {
+            string sqlCommand = "logistic.managementterUpdate";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@em_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_number",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_name",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_evername",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_gender",SqlDbType.Int),
+				new Sqlcon.warning("@em_birth",SqlDbType.DateTime),
+				new Sqlcon.warning("@em_marriage",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_n_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_na_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_p_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_stature",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_avoirdupois",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_v_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_statuscard",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_health",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_bloodtype",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_phone",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_mobile",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_email",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_finishschool",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_speciality",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_l_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_graduatetime",SqlDbType.DateTime),
+				new Sqlcon.warning("@em_degree",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_language",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_languagelevel",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_languageletter",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_computerlevel",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_computerletter",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_computergood",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_mandarinlevel",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_familyaddress",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_postalcode",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_address",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_familyphone",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_addresspostalcode",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_familycircs",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_recordlocus",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_jobname",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_whenjoinwork",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_whenthiswork",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_addlength",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_thisunitlength",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_dept_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_duty",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_remark",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_bookerid",SqlDbType.Int),
+				new Sqlcon.warning("@em_registertime",SqlDbType.DateTime),
+				new Sqlcon.warning("@em_photo",SqlDbType.VarChar)
+				};
+            param[0].Value = logistic.managementter.em_id;
+            param[1].Value = logistic.managementter.em_number;
+            param[2].Value = logistic.managementter.em_name;
+            param[3].Value = logistic.managementter.em_evername;
+            param[4].Value = logistic.managementter.em_gender;
+            param[5].Value = logistic.managementter.em_birth;
+            param[6].Value = logistic.managementter.em_marriage;
+            param[7].Value = logistic.managementter.em_n_id;
+            param[8].Value = logistic.managementter.em_na_id;
+            param[9].Value = logistic.managementter.em_p_id;
+            param[10].Value = logistic.managementter.em_stature;
+            param[11].Value = logistic.managementter.em_avoirdupois;
+            param[12].Value = logistic.managementter.em_v_id;
+            param[13].Value = logistic.managementter.em_statuscard;
+            param[14].Value = logistic.managementter.em_health;
+            param[15].Value = logistic.managementter.em_bloodtype;
+            param[16].Value = logistic.managementter.em_phone;
+            param[17].Value = logistic.managementter.em_mobile;
+            param[18].Value = logistic.managementter.em_email;
+            param[19].Value = logistic.managementter.em_finishschool;
+            param[20].Value = logistic.managementter.em_speciality;
+            param[21].Value = logistic.managementter.em_l_id;
+            param[22].Value = logistic.managementter.em_graduatetime;
+            param[23].Value = logistic.managementter.em_degree;
+            param[24].Value = logistic.managementter.em_language;
+            param[25].Value = logistic.managementter.em_languagelevel;
+            param[26].Value = logistic.managementter.em_languageletter;
+            param[27].Value = logistic.managementter.em_computerlevel;
+            param[28].Value = logistic.managementter.em_computerletter;
+            param[29].Value = logistic.managementter.em_computergood;
+            param[30].Value = logistic.managementter.em_mandarinlevel;
+            param[31].Value = logistic.managementter.em_familyaddress;
+            param[32].Value = logistic.managementter.em_postalcode;
+            param[33].Value = logistic.managementter.em_address;
+            param[34].Value = logistic.managementter.em_familyphone;
+            param[35].Value = logistic.managementter.em_addresspostalcode;
+            param[36].Value = logistic.managementter.em_familycircs;
+            param[37].Value = logistic.managementter.em_recordlocus;
+            param[38].Value = logistic.managementter.em_jobname;
+            param[39].Value = logistic.managementter.em_whenjoinwork;
+            param[40].Value = logistic.managementter.em_whenthiswork;
+            param[41].Value = logistic.managementter.em_addlength;
+            param[42].Value = logistic.managementter.em_thisunitlength;
+            param[43].Value = logistic.managementter.em_dept_id;
+            param[44].Value = logistic.managementter.em_duty;
+            param[45].Value = logistic.managementter.em_remark;
+            param[46].Value = logistic.managementter.em_bookerid;
+            param[47].Value = logistic.managementter.em_registertime;
+            param[48].Value = logistic.managementter.em_photo;
+            return SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Update(SqlTransaction sp, logistic.managementter logistic.managementter)
+        {
+            string sqlCommand = "logistic.managementterUpdate";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@em_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_number",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_name",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_evername",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_gender",SqlDbType.Int),
+				new Sqlcon.warning("@em_birth",SqlDbType.DateTime),
+				new Sqlcon.warning("@em_marriage",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_n_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_na_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_p_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_stature",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_avoirdupois",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_v_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_statuscard",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_health",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_bloodtype",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_phone",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_mobile",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_email",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_finishschool",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_speciality",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_l_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_graduatetime",SqlDbType.DateTime),
+				new Sqlcon.warning("@em_degree",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_language",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_languagelevel",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_languageletter",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_computerlevel",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_computerletter",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_computergood",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_mandarinlevel",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_familyaddress",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_postalcode",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_address",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_familyphone",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_addresspostalcode",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_familycircs",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_recordlocus",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_jobname",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_whenjoinwork",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_whenthiswork",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_addlength",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_thisunitlength",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_dept_id",SqlDbType.Int),
+				new Sqlcon.warning("@em_duty",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_remark",SqlDbType.VarChar),
+				new Sqlcon.warning("@em_bookerid",SqlDbType.Int),
+				new Sqlcon.warning("@em_registertime",SqlDbType.DateTime),
+				new Sqlcon.warning("@em_photo",SqlDbType.VarChar)
+				};
+            param[0].Value = logistic.managementter.em_id;
+            param[1].Value = logistic.managementter.em_number;
+            param[2].Value = logistic.managementter.em_name;
+            param[3].Value = logistic.managementter.em_evername;
+            param[4].Value = logistic.managementter.em_gender;
+            param[5].Value = logistic.managementter.em_birth;
+            param[6].Value = logistic.managementter.em_marriage;
+            param[7].Value = logistic.managementter.em_n_id;
+            param[8].Value = logistic.managementter.em_na_id;
+            param[9].Value = logistic.managementter.em_p_id;
+            param[10].Value = logistic.managementter.em_stature;
+            param[11].Value = logistic.managementter.em_avoirdupois;
+            param[12].Value = logistic.managementter.em_v_id;
+            param[13].Value = logistic.managementter.em_statuscard;
+            param[14].Value = logistic.managementter.em_health;
+            param[15].Value = logistic.managementter.em_bloodtype;
+            param[16].Value = logistic.managementter.em_phone;
+            param[17].Value = logistic.managementter.em_mobile;
+            param[18].Value = logistic.managementter.em_email;
+            param[19].Value = logistic.managementter.em_finishschool;
+            param[20].Value = logistic.managementter.em_speciality;
+            param[21].Value = logistic.managementter.em_l_id;
+            param[22].Value = logistic.managementter.em_graduatetime;
+            param[23].Value = logistic.managementter.em_degree;
+            param[24].Value = logistic.managementter.em_language;
+            param[25].Value = logistic.managementter.em_languagelevel;
+            param[26].Value = logistic.managementter.em_languageletter;
+            param[27].Value = logistic.managementter.em_computerlevel;
+            param[28].Value = logistic.managementter.em_computerletter;
+            param[29].Value = logistic.managementter.em_computergood;
+            param[30].Value = logistic.managementter.em_mandarinlevel;
+            param[31].Value = logistic.managementter.em_familyaddress;
+            param[32].Value = logistic.managementter.em_postalcode;
+            param[33].Value = logistic.managementter.em_address;
+            param[34].Value = logistic.managementter.em_familyphone;
+            param[35].Value = logistic.managementter.em_addresspostalcode;
+            param[36].Value = logistic.managementter.em_familycircs;
+            param[37].Value = logistic.managementter.em_recordlocus;
+            param[38].Value = logistic.managementter.em_jobname;
+            param[39].Value = logistic.managementter.em_whenjoinwork;
+            param[40].Value = logistic.managementter.em_whenthiswork;
+            param[41].Value = logistic.managementter.em_addlength;
+            param[42].Value = logistic.managementter.em_thisunitlength;
+            param[43].Value = logistic.managementter.em_dept_id;
+            param[44].Value = logistic.managementter.em_duty;
+            param[45].Value = logistic.managementter.em_remark;
+            param[46].Value = logistic.managementter.em_bookerid;
+            param[47].Value = logistic.managementter.em_registertime;
+            param[48].Value = logistic.managementter.em_photo;
+            return SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Delete(int em_id)
+        {
+            string sqlCommand = "logistic.managementterDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@em_id",SqlDbType.Int)
+			};
+            param[0].Value = em_id;
+            return SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Delete(logistic.managementter logistic.managementter)
+        {
+            string sqlCommand = "logistic.managementterDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@em_id",SqlDbType.Int)
+			};
+            param[0].Value = logistic.managementter.em_id;
+            return SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Delete(SqlTransaction sp, int em_id)
+        {
+            string sqlCommand = "logistic.managementterDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@em_id",SqlDbType.Int)
+			};
+            param[0].Value = em_id;
+            return SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Delete(SqlTransaction sp, logistic.managementter logistic.managementter)
+        {
+            string sqlCommand = "logistic.managementterDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@em_id",SqlDbType.Int)
+			};
+            param[0].Value = logistic.managementter.em_id;
+            return SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public logistic.managementter Select(DataRow row)
+        {
+            logistic.managementter obj = new logistic.managementter();
+            if (row != null)
+            {
+                obj.em_id = ((row["em_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["em_id"]);
+                obj.em_number = row["em_number"].ToString();
+                obj.em_name = row["em_name"].ToString();
+                obj.em_evername = row["em_evername"].ToString();
+                obj.em_gender = ((row["em_gender"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["em_gender"]);
+                obj.em_birth = ((row["em_birth"]) == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(row["em_birth"]);
+                obj.em_marriage = row["em_marriage"].ToString();
+                obj.em_n_id = ((row["em_n_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["em_n_id"]);
+                obj.em_na_id = ((row["em_na_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["em_na_id"]);
+                obj.em_p_id = ((row["em_p_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["em_p_id"]);
+                obj.em_stature = row["em_stature"].ToString();
+                obj.em_avoirdupois = row["em_avoirdupois"].ToString();
+                obj.em_v_id = ((row["em_v_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["em_v_id"]);
+                obj.em_statuscard = row["em_statuscard"].ToString();
+                obj.em_health = row["em_health"].ToString();
+                obj.em_bloodtype = row["em_bloodtype"].ToString();
+                obj.em_phone = row["em_phone"].ToString();
+                obj.em_mobile = row["em_mobile"].ToString();
+                obj.em_email = row["em_email"].ToString();
+                obj.em_finishschool = row["em_finishschool"].ToString();
+                obj.em_speciality = row["em_speciality"].ToString();
+                obj.em_l_id = ((row["em_l_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["em_l_id"]);
+                obj.em_graduatetime = ((row["em_graduatetime"]) == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(row["em_graduatetime"]);
+                obj.em_degree = row["em_degree"].ToString();
+                obj.em_language = row["em_language"].ToString();
+                obj.em_languagelevel = row["em_languagelevel"].ToString();
+                obj.em_languageletter = row["em_languageletter"].ToString();
+                obj.em_computerlevel = row["em_computerlevel"].ToString();
+                obj.em_computerletter = row["em_computerletter"].ToString();
+                obj.em_computergood = row["em_computergood"].ToString();
+                obj.em_mandarinlevel = row["em_mandarinlevel"].ToString();
+                obj.em_familyaddress = row["em_familyaddress"].ToString();
+                obj.em_postalcode = row["em_postalcode"].ToString();
+                obj.em_address = row["em_address"].ToString();
+                obj.em_familyphone = row["em_familyphone"].ToString();
+                obj.em_addresspostalcode = row["em_addresspostalcode"].ToString();
+                obj.em_familycircs = row["em_familycircs"].ToString();
+                obj.em_recordlocus = row["em_recordlocus"].ToString();
+                obj.em_jobname = row["em_jobname"].ToString();
+                obj.em_whenjoinwork = row["em_whenjoinwork"].ToString();
+                obj.em_whenthiswork = row["em_whenthiswork"].ToString();
+                obj.em_addlength = row["em_addlength"].ToString();
+                obj.em_thisunitlength = row["em_thisunitlength"].ToString();
+                obj.em_dept_id = ((row["em_dept_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["em_dept_id"]);
+                obj.em_duty = row["em_duty"].ToString();
+                obj.em_remark = row["em_remark"].ToString();
+                obj.em_bookerid = ((row["em_bookerid"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["em_bookerid"]);
+                obj.em_registertime = ((row["em_registertime"]) == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(row["em_registertime"]);
+                obj.em_photo = row["em_photo"].ToString();
+            }
+            else
+            {
+                return null;
+            }
+            return obj;
+        }
+        public logistic.managementter Select(IDataReader dr)
+        {
+            logistic.managementter obj = new logistic.managementter();
+            obj.em_id = ((dr["em_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["em_id"]);
+            obj.em_number = dr["em_number"].ToString();
+            obj.em_name = dr["em_name"].ToString();
+            obj.em_evername = dr["em_evername"].ToString();
+            obj.em_gender = ((dr["em_gender"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["em_gender"]);
+            obj.em_birth = ((dr["em_birth"]) == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(dr["em_birth"]);
+            obj.em_marriage = dr["em_marriage"].ToString();
+            obj.em_n_id = ((dr["em_n_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["em_n_id"]);
+            obj.em_na_id = ((dr["em_na_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["em_na_id"]);
+            obj.em_p_id = ((dr["em_p_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["em_p_id"]);
+            obj.em_stature = dr["em_stature"].ToString();
+            obj.em_avoirdupois = dr["em_avoirdupois"].ToString();
+            obj.em_v_id = ((dr["em_v_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["em_v_id"]);
+            obj.em_statuscard = dr["em_statuscard"].ToString();
+            obj.em_health = dr["em_health"].ToString();
+            obj.em_bloodtype = dr["em_bloodtype"].ToString();
+            obj.em_phone = dr["em_phone"].ToString();
+            obj.em_mobile = dr["em_mobile"].ToString();
+            obj.em_email = dr["em_email"].ToString();
+            obj.em_finishschool = dr["em_finishschool"].ToString();
+            obj.em_speciality = dr["em_speciality"].ToString();
+            obj.em_l_id = ((dr["em_l_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["em_l_id"]);
+            obj.em_graduatetime = ((dr["em_graduatetime"]) == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(dr["em_graduatetime"]);
+            obj.em_degree = dr["em_degree"].ToString();
+            obj.em_language = dr["em_language"].ToString();
+            obj.em_languagelevel = dr["em_languagelevel"].ToString();
+            obj.em_languageletter = dr["em_languageletter"].ToString();
+            obj.em_computerlevel = dr["em_computerlevel"].ToString();
+            obj.em_computerletter = dr["em_computerletter"].ToString();
+            obj.em_computergood = dr["em_computergood"].ToString();
+            obj.em_mandarinlevel = dr["em_mandarinlevel"].ToString();
+            obj.em_familyaddress = dr["em_familyaddress"].ToString();
+            obj.em_postalcode = dr["em_postalcode"].ToString();
+            obj.em_address = dr["em_address"].ToString();
+            obj.em_familyphone = dr["em_familyphone"].ToString();
+            obj.em_addresspostalcode = dr["em_addresspostalcode"].ToString();
+            obj.em_familycircs = dr["em_familycircs"].ToString();
+            obj.em_recordlocus = dr["em_recordlocus"].ToString();
+            obj.em_jobname = dr["em_jobname"].ToString();
+            obj.em_whenjoinwork = dr["em_whenjoinwork"].ToString();
+            obj.em_whenthiswork = dr["em_whenthiswork"].ToString();
+            obj.em_addlength = dr["em_addlength"].ToString();
+            obj.em_thisunitlength = dr["em_thisunitlength"].ToString();
+            obj.em_dept_id = ((dr["em_dept_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["em_dept_id"]);
+            obj.em_duty = dr["em_duty"].ToString();
+            obj.em_remark = dr["em_remark"].ToString();
+            obj.em_bookerid = ((dr["em_bookerid"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["em_bookerid"]);
+            obj.em_registertime = ((dr["em_registertime"]) == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(dr["em_registertime"]);
+            obj.em_photo = dr["em_photo"].ToString();
+            return obj;
+        }
+        public logistic.managementter Select(int em_id)
+        {
+            return this.Select(em_id, false, false);
+        }
+        public logistic.managementter Select(int em_id, bool bParentTable, bool bChildrenTable)
+        {
+            logistic.managementter obj = null;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@em_id",SqlDbType.Int)
+			};
+            param[0].Value = em_id;
+            string sqlCommand = "logistic.managementterSelect";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    obj = this.Select(dr);
+                }
+            }
+            this.Select(obj, bParentTable, bChildrenTable);
+            return obj;
+        }
+        public void Select(logistic.managementter obj, bool bParentTable, bool bChildrenTable)
+        {
+            if (bParentTable)
+        public void Select(logistic.managementter obj, bool bParentTable, bool bChildrenTable)
+            {
+                obj.nation = nationBLL.Select(obj.em_na_id);
+                obj.visage = visageBLL.Select(obj.em_v_id);
+                obj.province = provinceBLL.Select(obj.em_p_id);
+                obj.native = nativeBLL.Select(obj.em_n_id);
+                obj.learn = learnBLL.Select(obj.em_l_id);
+                obj.department = departmentBLL.Select(obj.em_dept_id);
+            }
+            if (bChildrenTable)
+            {
+                obj.users = usersBLL.Select("u_em_id=" + obj.em_id.ToString());
+                foreach (users item in obj.users)
+                {
+                    item.logistic.managementter = obj;
+                }
+            }
+        }
+        public void nation(logistic.managementter logistic.managementter)
+        {
+            logistic.managementter.nation = nationBLL.Select(logistic.managementter.em_na_id);
+        }
+        public void visage(logistic.managementter logistic.managementter)
+        {
+            logistic.managementter.visage = visageBLL.Select(logistic.managementter.em_v_id);
+        }
+        public void province(logistic.managementter logistic.managementter)
+        {
+            logistic.managementter.province = provinceBLL.Select(logistic.managementter.em_p_id);
+        }
+        public void native(logistic.managementter logistic.managementter)
+        {
+            logistic.managementter.native = nativeBLL.Select(logistic.managementter.em_n_id);
+        }
+        public void learn(logistic.managementter logistic.managementter)
+        {
+            logistic.managementter.learn = learnBLL.Select(logistic.managementter.em_l_id);
+        }
+        public void department(logistic.managementter logistic.managementter)
+        {
+            logistic.managementter.department = departmentBLL.Select(logistic.managementter.em_dept_id);
+        }
+        public void users(logistic.managementter logistic.managementter)
+        {
+            logistic.managementter.users = usersBLL.Select("u_em_id=" + logistic.managementter.em_id.ToString());
+        }
+        public IList<logistic.managementter> Select()
+        {
+            return this.Select(false, false);
+        }
+        public IList<logistic.managementter> Select(bool bParentTable, bool bChildrenTable)
+        {
+            IList<logistic.managementter> list = new List<logistic.managementter>();
+            string sqlCommand = "logistic.managementterSelectAll";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (logistic.managementter obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<logistic.managementter> Select(string where)
+        {
+            return this.Select(where, false, false);
+        }
+        public IList<logistic.managementter> Select(string where, bool bParentTable, bool bChildrenTable)
+        {
+            IList<logistic.managementter> list = new List<logistic.managementter>();
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+			};
+            param[0].Value = where;
+            string sqlCommand = "logistic.managementterSelectByParams";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (logistic.managementter obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<logistic.managementter> Select(string foreignFieldName, int foreignFieldValue)
+        {
+            return this.Select(foreignFieldName, foreignFieldValue, false, false);
+        }
+        public IList<logistic.managementter> Select(string foreignFieldName, int foreignFieldValue, bool bParentTable, bool bChildrenTable)
+        {
+            return this.Select(string.Format("{0}='{1}'", foreignFieldName, foreignFieldValue), bParentTable, bChildrenTable);
+        }
+        public void Select(string where, out int recordCount)
+        {
+            string sqlCommand = "logistic.managementterCountByWhere";
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000),
+			new Sqlcon.warning("@recordCount",SqlDbType.Int)
+			};
+            param[0].Value = where;
+            param[1].Direction = con.warningDirection.Output;
+            SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+            recordCount = Convert.ToInt32(param[1].Value);
+        }
+        public IList<logistic.managementter> Select(int pageSize, int pageIndex, string where)
+        {
+            return this.Select(pageSize, pageIndex, where, false, false);
+        }
+        public IList<logistic.managementter> Select(int pageSize, int pageIndex, string where, bool bParentTable, bool bChildrenTable)
+        {
+            IList<logistic.managementter> list = new List<logistic.managementter>();
+            string sqlCommand = "logistic.managementterSelectByPagerParams";
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@pageSize",SqlDbType.Int),
+			new Sqlcon.warning("@pageIndex",SqlDbType.Int),
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+			};
+            param[0].Value = pageSize;
+            param[1].Value = pageIndex;
+            param[2].Value = where;
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (logistic.managementter obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<logistic.managementter> Select(CommandType commandType, string sqlCommand, params Sqlcon.warning[] param)
+        {
+            return this.Select(false, false, commandType, sqlCommand, param);
+        }
+        public IList<logistic.managementter> Select(bool bParentTable, bool bChildrenTable, CommandType commandType, string sqlCommand, params Sqlcon.warning[] param)
+        {
+            IList<logistic.managementter> list = new List<logistic.managementter>();
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, commandType, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (logistic.managementter obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public bool Exists(int em_id)
+        {
+            Sqlcon.warning[] param ={
+                                 new Sqlcon.warning("@em_id",SqlDbType.Int)
+                                 };
+            param[0].Value = em_id;
+            string sqlCommand = "logistic.managementterIsExist";
+            int a = Convert.ToInt32(SqlHelper.ExecuteScalar(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param));
+            if (a > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
