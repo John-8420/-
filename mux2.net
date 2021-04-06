@@ -1,0 +1,695 @@
+using System;
+using System.logistic.management;
+using System.logistic.managementter;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;
+using logistic.management.warning.Entity;
+using logistic.management.warning.I;
+using logistic.management.warning.BLL;
+namespace logistic.management.warning.SqlServer
+{
+      public document()
+        {
+        }
+        public int Insert(document document)
+        {
+            string sqlCommand = "documentInsert";
+            int res;//函数
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@doc_id",SqlDbType.Int),
+			new Sqlcon.warning("@doc_dept_id",SqlDbType.Int),
+			new Sqlcon.warning("@doc_g_id",SqlDbType.Int),
+			new Sqlcon.warning("@doc_u_id",SqlDbType.Int),
+			new Sqlcon.warning("@doc_title",SqlDbType.VarChar),// 编辑新表名
+			new Sqlcon.warning("@doc_annex",SqlDbType.VarChar),
+			new Sqlcon.warning("@doc_downllogistic.management.warning ds",SqlDbType.Int),
+			new Sqlcon.warning("@doc_reads",SqlDbType.Int),
+			new Sqlcon.warning("@doc_clicks",SqlDbType.Int),
+			new Sqlcon.warning("@doc_releasetime",SqlDbType.DateTime),
+			new Sqlcon.warning("@doc_sendu_id",SqlDbType.Int)
+			};//统计方式
+            param[0].Direction = con.warningDirection.Output;
+            param[1].Value = document.doc_dept_id;
+            param[2].Value = document.doc_g_id;
+            param[3].Value = document.doc_u_id;
+            param[4].Value = document.doc_title;
+            param[5].Value = document.doc_annex;
+            param[6].Value = document.doc_downllogistic.management.warning ds;
+            param[7].Value = document.doc_reads;
+            param[8].Value = document.doc_clicks;
+            param[9].Value = document.doc_releasetime;
+            param[10].Value = document.doc_sendu_id;
+            res = SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+            document.doc_id = ((param[0].Value) == DBNull.Value) ? 0 : Convert.ToInt32(param[0].Value);
+            return res;
+        }
+        public int Insert(SqlTransaction sp, document document)
+        {
+            string sqlCommand = "documentInsert";
+            int res;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@doc_id",SqlDbType.Int),
+			new Sqlcon.warning("@doc_dept_id",SqlDbType.Int),
+			new Sqlcon.warning("@doc_g_id",SqlDbType.Int),
+			new Sqlcon.warning("@doc_u_id",SqlDbType.Int),
+			new Sqlcon.warning("@doc_title",SqlDbType.VarChar),
+			new Sqlcon.warning("@doc_annex",SqlDbType.VarChar),
+			new Sqlcon.warning("@doc_downllogistic.management.warning ds",SqlDbType.Int),
+			new Sqlcon.warning("@doc_reads",SqlDbType.Int),
+			new Sqlcon.warning("@doc_clicks",SqlDbType.Int),
+			new Sqlcon.warning("@doc_releasetime",SqlDbType.DateTime),
+			new Sqlcon.warning("@doc_sendu_id",SqlDbType.Int)
+			};
+            param[0].Direction = con.warningDirection.Output;
+            param[1].Value = document.doc_dept_id;
+            param[2].Value = document.doc_g_id;
+            param[3].Value = document.doc_u_id;
+            param[4].Value = document.doc_title;
+            param[5].Value = document.doc_annex;
+            param[6].Value = document.doc_downllogistic.management.warning ds;
+            param[7].Value = document.doc_reads;
+            param[8].Value = document.doc_clicks;
+            param[9].Value = document.doc_releasetime;
+            param[10].Value = document.doc_sendu_id;
+            res = SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+            document.doc_id = ((param[0].Value) == DBNull.Value) ? 0 : Convert.ToInt32(param[0].Value);
+            return res;
+        }
+        public int Update(document document)
+        {
+            string sqlCommand = "documentUpdate";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@doc_id",SqlDbType.Int),
+				new Sqlcon.warning("@doc_dept_id",SqlDbType.Int),
+				new Sqlcon.warning("@doc_g_id",SqlDbType.Int),
+				new Sqlcon.warning("@doc_u_id",SqlDbType.Int),
+				new Sqlcon.warning("@doc_title",SqlDbType.VarChar),
+				new Sqlcon.warning("@doc_annex",SqlDbType.VarChar),
+				new Sqlcon.warning("@doc_downllogistic.management.warning ds",SqlDbType.Int),
+				new Sqlcon.warning("@doc_reads",SqlDbType.Int),
+				new Sqlcon.warning("@doc_clicks",SqlDbType.Int),
+				new Sqlcon.warning("@doc_releasetime",SqlDbType.DateTime),
+				new Sqlcon.warning("@doc_sendu_id",SqlDbType.Int)
+				};
+            param[0].Value = document.doc_id;
+            param[1].Value = document.doc_dept_id;
+            param[2].Value = document.doc_g_id;
+            param[3].Value = document.doc_u_id;
+            param[4].Value = document.doc_title;
+            param[5].Value = document.doc_annex;
+            param[6].Value = document.doc_downllogistic.management.warning ds;
+            param[7].Value = document.doc_reads;
+            param[8].Value = document.doc_clicks;
+            param[9].Value = document.doc_releasetime;
+            param[10].Value = document.doc_sendu_id;
+            return SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Update(SqlTransaction sp, document document)
+        {
+            string sqlCommand = "documentUpdate";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@doc_id",SqlDbType.Int),
+				new Sqlcon.warning("@doc_dept_id",SqlDbType.Int),
+				new Sqlcon.warning("@doc_g_id",SqlDbType.Int),
+				new Sqlcon.warning("@doc_u_id",SqlDbType.Int),
+				new Sqlcon.warning("@doc_title",SqlDbType.VarChar),
+				new Sqlcon.warning("@doc_annex",SqlDbType.VarChar),
+				new Sqlcon.warning("@doc_downllogistic.management.warning ds",SqlDbType.Int),
+				new Sqlcon.warning("@doc_reads",SqlDbType.Int),
+				new Sqlcon.warning("@doc_clicks",SqlDbType.Int),
+				new Sqlcon.warning("@doc_releasetime",SqlDbType.DateTime),
+				new Sqlcon.warning("@doc_sendu_id",SqlDbType.Int)
+				};
+            param[0].Value = document.doc_id;
+            param[1].Value = document.doc_dept_id;
+            param[2].Value = document.doc_g_id;
+            param[3].Value = document.doc_u_id;
+            param[4].Value = document.doc_title;
+            param[5].Value = document.doc_annex;
+            param[6].Value = document.doc_downllogistic.management.warning ds;
+            param[7].Value = document.doc_reads;
+            param[8].Value = document.doc_clicks;
+            param[9].Value = document.doc_releasetime;
+            param[10].Value = document.doc_sendu_id;
+            return SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Delete(int doc_id)
+        {
+            string sqlCommand = "documentDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@doc_id",SqlDbType.Int)
+			};
+            param[0].Value = doc_id;
+            return SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Delete(document document)
+        {
+            string sqlCommand = "documentDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@doc_id",SqlDbType.Int)
+			};
+            param[0].Value = document.doc_id;
+            return SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Delete(SqlTransaction sp, int doc_id)
+        {
+            string sqlCommand = "documentDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@doc_id",SqlDbType.Int)
+			};
+            param[0].Value = doc_id;
+            return SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Delete(SqlTransaction sp, document document)
+        {
+            string sqlCommand = "documentDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@doc_id",SqlDbType.Int)
+			};
+            param[0].Value = document.doc_id;
+            return SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public document Select(DataRow row)
+        {
+            document obj = new document();
+            if (row != null)
+            {
+                obj.doc_id = ((row["doc_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["doc_id"]);
+                obj.doc_dept_id = ((row["doc_dept_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["doc_dept_id"]);
+                obj.doc_g_id = ((row["doc_g_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["doc_g_id"]);
+                obj.doc_u_id = ((row["doc_u_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["doc_u_id"]);
+                obj.doc_title = row["doc_title"].ToString();
+                obj.doc_annex = row["doc_annex"].ToString();
+                obj.doc_downllogistic.management.warning ds = ((row["doc_downllogistic.management.warning ds"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["doc_downllogistic.management.warning ds"]);
+                obj.doc_reads = ((row["doc_reads"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["doc_reads"]);
+                obj.doc_clicks = ((row["doc_clicks"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["doc_clicks"]);
+                obj.doc_releasetime = ((row["doc_releasetime"]) == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(row["doc_releasetime"]);
+                obj.doc_sendu_id = ((row["doc_sendu_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["doc_sendu_id"]);
+            }
+            else
+            {
+                return null;
+            }
+            return obj;
+        }
+        public document Select(IDataReader dr)
+        {
+            document obj = new document();
+            obj.doc_id = ((dr["doc_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["doc_id"]);
+            obj.doc_dept_id = ((dr["doc_dept_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["doc_dept_id"]);
+            obj.doc_g_id = ((dr["doc_g_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["doc_g_id"]);
+            obj.doc_u_id = ((dr["doc_u_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["doc_u_id"]);
+            obj.doc_title = dr["doc_title"].ToString();
+            obj.doc_annex = dr["doc_annex"].ToString();
+            obj.doc_downllogistic.management.warning ds = ((dr["doc_downllogistic.management.warning ds"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["doc_downllogistic.management.warning ds"]);
+            obj.doc_reads = ((dr["doc_reads"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["doc_reads"]);
+            obj.doc_clicks = ((dr["doc_clicks"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["doc_clicks"]);
+            obj.doc_releasetime = ((dr["doc_releasetime"]) == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(dr["doc_releasetime"]);
+            obj.doc_sendu_id = ((dr["doc_sendu_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["doc_sendu_id"]);
+            return obj;
+        }
+        public document Select(int doc_id)
+        {
+            return this.Select(doc_id, false, false);
+        }
+        public document Select(int doc_id, bool bParentTable, bool bChildrenTable)
+        {
+            document obj = null;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@doc_id",SqlDbType.Int)
+			};
+            param[0].Value = doc_id;
+            string sqlCommand = "documentSelect";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    obj = this.Select(dr);
+                }
+            }
+            this.Select(obj, bParentTable, bChildrenTable);
+            return obj;
+        }
+        public void Select(document obj, bool bParentTable, bool bChildrenTable)
+        {
+            if (bParentTable)
+            {
+                obj.users = usersBLL.Select(obj.doc_u_id);
+                obj.groups = groupsBLL.Select(obj.doc_g_id);
+                obj.department = departmentBLL.Select(obj.doc_dept_id);
+            }
+            if (bChildrenTable)
+            {
+            }
+        }
+        public void users(document document)
+        {
+            document.users = usersBLL.Select(document.doc_u_id);
+        }
+        public void groups(document document)
+        {
+            document.groups = groupsBLL.Select(document.doc_g_id);
+        }
+        public void department(document document)
+        {
+            document.department = departmentBLL.Select(document.doc_dept_id);
+        }
+        public IList<document> Select()
+        {
+            return this.Select(false, false);
+        }
+        public IList<document> Select(bool bParentTable, bool bChildrenTable)
+        {
+            IList<document> list = new List<document>();
+            string sqlCommand = "documentSelectAll";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (document obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<document> Select(string where)
+        {
+            return this.Select(where, false, false);
+        }
+        public IList<document> Select(string where, bool bParentTable, bool bChildrenTable)
+        {
+            IList<document> list = new List<document>();
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+			};
+            param[0].Value = where;
+            string sqlCommand = "documentSelectByParams";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (document obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<document> Select(string foreignFieldName, int foreignFieldValue)
+        {
+            return this.Select(foreignFieldName, foreignFieldValue, false, false);
+        }
+        public IList<document> Select(string foreignFieldName, int foreignFieldValue, bool bParentTable, bool bChildrenTable)
+        {
+            return this.Select(string.Format("{0}='{1}'", foreignFieldName, foreignFieldValue), bParentTable, bChildrenTable);
+        }
+        public void Select(string where, out int recordCount)
+        {
+            string sqlCommand = "documentCountByWhere";
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000),
+			new Sqlcon.warning("@recordCount",SqlDbType.Int)
+			};
+            param[0].Value = where;
+            param[1].Direction = con.warningDirection.Output;
+            SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+            recordCount = Convert.ToInt32(param[1].Value);
+        }
+        public IList<document> Select(int pageSize, int pageIndex, string where)
+        {
+            return this.Select(pageSize, pageIndex, where, false, false);
+        }
+        public IList<document> Select(int pageSize, int pageIndex, string where, bool bParentTable, bool bChildrenTable)
+        {
+            IList<document> list = new List<document>();
+            string sqlCommand = "documentSelectByPagerParams";
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@pageSize",SqlDbType.Int),
+			new Sqlcon.warning("@pageIndex",SqlDbType.Int),
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+			};
+            param[0].Value = pageSize;
+            param[1].Value = pageIndex;
+            param[2].Value = where;
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (document obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<document> Select(CommandType commandType, string sqlCommand, params Sqlcon.warning[] param)
+        {
+            return this.Select(false, false, commandType, sqlCommand, param);
+        }
+        public IList<document> Select(bool bParentTable, bool bChildrenTable, CommandType commandType, string sqlCommand, params Sqlcon.warning[] param)
+        {
+            IList<document> list = new List<document>();
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, commandType, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (document obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public bool Exists(int doc_id)
+        {
+            Sqlcon.warning[] param ={
+                                 new Sqlcon.warning("@doc_id",SqlDbType.Int)
+                                 };
+            param[0].Value = doc_id;
+            string sqlCommand = "documentIsExist";
+            int a = Convert.ToInt32(SqlHelper.ExecuteScalar(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param));
+            if (a > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
+namespace logistic.management.warning.SqlServer
+{
+    public partial class examine : Iexamine
+    {
+        public int Insert(examine examine)
+        {
+            string sqlCommand = "examineInsert";
+            int res;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@ex_id",SqlDbType.Int),
+			new Sqlcon.warning("@ex_applycontent",SqlDbType.VarChar),
+			new Sqlcon.warning("@ex_define",SqlDbType.VarChar),
+			new Sqlcon.warning("@ex_remark",SqlDbType.VarChar),
+			new Sqlcon.warning("@ex_u_id",SqlDbType.Int),
+			new Sqlcon.warning("@ex_applytime",SqlDbType.DateTime),
+			new Sqlcon.warning("@ex_state",SqlDbType.Int),
+			new Sqlcon.warning("@ex_inceptid",SqlDbType.Int),
+			new Sqlcon.warning("@ex_examineidea",SqlDbType.VarChar),
+			new Sqlcon.warning("@ex_examinetiem",SqlDbType.DateTime),
+			new Sqlcon.warning("@ex_dept_id",SqlDbType.Int)
+			};
+            param[0].Direction = con.warningDirection.Output;
+            param[1].Value = examine.ex_applycontent;
+            param[2].Value = examine.ex_define;
+            param[3].Value = examine.ex_remark;
+            param[4].Value = examine.ex_u_id;
+            param[5].Value = examine.ex_applytime;
+            param[6].Value = examine.ex_state;
+            param[7].Value = examine.ex_inceptid;
+            param[8].Value = examine.ex_examineidea;
+            param[9].Value = examine.ex_examinetiem;
+            param[10].Value = examine.ex_dept_id;
+            res = SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+            examine.ex_id = ((param[0].Value) == DBNull.Value) ? 0 : Convert.ToInt32(param[0].Value);
+            return res;
+        }
+        public int Insert(SqlTransaction sp, examine examine)
+        {
+            string sqlCommand = "examineInsert";
+            int res;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@ex_id",SqlDbType.Int),
+			new Sqlcon.warning("@ex_applycontent",SqlDbType.VarChar),
+			new Sqlcon.warning("@ex_define",SqlDbType.VarChar),
+			new Sqlcon.warning("@ex_remark",SqlDbType.VarChar),
+			new Sqlcon.warning("@ex_u_id",SqlDbType.Int),
+			new Sqlcon.warning("@ex_applytime",SqlDbType.DateTime),
+			new Sqlcon.warning("@ex_state",SqlDbType.Int),
+			new Sqlcon.warning("@ex_inceptid",SqlDbType.Int),
+			new Sqlcon.warning("@ex_examineidea",SqlDbType.VarChar),
+			new Sqlcon.warning("@ex_examinetiem",SqlDbType.DateTime),
+			new Sqlcon.warning("@ex_dept_id",SqlDbType.Int)
+			};
+            param[0].Direction = con.warningDirection.Output;
+            param[1].Value = examine.ex_applycontent;
+            param[2].Value = examine.ex_define;
+            param[3].Value = examine.ex_remark;
+            param[4].Value = examine.ex_u_id;
+            param[5].Value = examine.ex_applytime;
+            param[6].Value = examine.ex_state;
+            param[7].Value = examine.ex_inceptid;
+            param[8].Value = examine.ex_examineidea;
+            param[9].Value = examine.ex_examinetiem;
+            param[10].Value = examine.ex_dept_id;
+            res = SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+            examine.ex_id = ((param[0].Value) == DBNull.Value) ? 0 : Convert.ToInt32(param[0].Value);
+            return res;
+        }
+        public int Update(examine examine)
+        {
+            string sqlCommand = "examineUpdate";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@ex_id",SqlDbType.Int),
+				new Sqlcon.warning("@ex_applycontent",SqlDbType.VarChar),
+				new Sqlcon.warning("@ex_define",SqlDbType.VarChar),
+				new Sqlcon.warning("@ex_remark",SqlDbType.VarChar),
+				new Sqlcon.warning("@ex_u_id",SqlDbType.Int),
+				new Sqlcon.warning("@ex_applytime",SqlDbType.DateTime),
+				new Sqlcon.warning("@ex_state",SqlDbType.Int),
+				new Sqlcon.warning("@ex_inceptid",SqlDbType.Int),
+				new Sqlcon.warning("@ex_examineidea",SqlDbType.VarChar),
+				new Sqlcon.warning("@ex_examinetiem",SqlDbType.DateTime),
+				new Sqlcon.warning("@ex_dept_id",SqlDbType.Int)
+				};
+            param[0].Value = examine.ex_id;
+            param[1].Value = examine.ex_applycontent;
+            param[2].Value = examine.ex_define;
+            param[3].Value = examine.ex_remark;
+            param[4].Value = examine.ex_u_id;
+            param[5].Value = examine.ex_applytime;
+            param[6].Value = examine.ex_state;
+            param[7].Value = examine.ex_inceptid;
+            param[8].Value = examine.ex_examineidea;
+            param[9].Value = examine.ex_examinetiem;
+            param[10].Value = examine.ex_dept_id;
+            return SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Update(SqlTransaction sp, examine examine)
+        {
+            string sqlCommand = "examineUpdate";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@ex_id",SqlDbType.Int),
+				new Sqlcon.warning("@ex_applycontent",SqlDbType.VarChar),
+				new Sqlcon.warning("@ex_define",SqlDbType.VarChar),
+				new Sqlcon.warning("@ex_remark",SqlDbType.VarChar),
+				new Sqlcon.warning("@ex_u_id",SqlDbType.Int),
+				new Sqlcon.warning("@ex_applytime",SqlDbType.DateTime),
+				new Sqlcon.warning("@ex_state",SqlDbType.Int),
+				new Sqlcon.warning("@ex_inceptid",SqlDbType.Int),
+				new Sqlcon.warning("@ex_examineidea",SqlDbType.VarChar),
+				new Sqlcon.warning("@ex_examinetiem",SqlDbType.DateTime),
+				new Sqlcon.warning("@ex_dept_id",SqlDbType.Int)
+				};
+            param[0].Value = examine.ex_id;
+            param[1].Value = examine.ex_applycontent;
+            param[2].Value = examine.ex_define;
+            param[3].Value = examine.ex_remark;
+            param[4].Value = examine.ex_u_id;
+            param[5].Value = examine.ex_applytime;
+            param[6].Value = examine.ex_state;
+            param[7].Value = examine.ex_inceptid;
+            param[8].Value = examine.ex_examineidea;
+            param[9].Value = examine.ex_examinetiem;
+            param[10].Value = examine.ex_dept_id;
+            return SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Delete(int ex_id)
+        {
+            string sqlCommand = "examineDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@ex_id",SqlDbType.Int)
+			};
+            param[0].Value = ex_id;
+            return SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Delete(examine examine)
+        {
+            string sqlCommand = "examineDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@ex_id",SqlDbType.Int)
+			};
+            param[0].Value = examine.ex_id;
+            return SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Delete(SqlTransaction sp, examine examine)
+        {
+            string sqlCommand = "examineDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@ex_id",SqlDbType.Int)
+			};
+            param[0].Value = examine.ex_id;
+            return SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public examine Select(DataRow row)
+        {
+            examine obj = new examine();
+            if (row != null)
+            {
+                obj.ex_id = ((row["ex_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["ex_id"]);
+                obj.ex_applycontent = row["ex_applycontent"].ToString();
+                obj.ex_define = row["ex_define"].ToString();
+                obj.ex_remark = row["ex_remark"].ToString();
+                obj.ex_u_id = ((row["ex_u_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["ex_u_id"]);
+                obj.ex_applytime = ((row["ex_applytime"]) == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(row["ex_applytime"]);
+                obj.ex_state = ((row["ex_state"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["ex_state"]);
+                obj.ex_inceptid = ((row["ex_inceptid"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["ex_inceptid"]);
+                obj.ex_examineidea = row["ex_examineidea"].ToString();
+                obj.ex_examinetiem = ((row["ex_examinetiem"]) == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(row["ex_examinetiem"]);
+                obj.ex_dept_id = ((row["ex_dept_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(row["ex_dept_id"]);
+            }
+            else
+            {
+                return null;
+            }
+            return obj;
+        }
+        public examine Select(IDataReader dr)
+        {
+            examine obj = new examine();
+            obj.ex_id = ((dr["ex_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["ex_id"]);
+            obj.ex_applycontent = dr["ex_applycontent"].ToString();
+            obj.ex_define = dr["ex_define"].ToString();
+            obj.ex_remark = dr["ex_remark"].ToString();
+            obj.ex_u_id = ((dr["ex_u_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["ex_u_id"]);
+            obj.ex_applytime = ((dr["ex_applytime"]) == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(dr["ex_applytime"]);
+            obj.ex_state = ((dr["ex_state"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["ex_state"]);
+            obj.ex_inceptid = ((dr["ex_inceptid"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["ex_inceptid"]);
+            obj.ex_examineidea = dr["ex_examineidea"].ToString();
+            obj.ex_examinetiem = ((dr["ex_examinetiem"]) == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(dr["ex_examinetiem"]);
+            obj.ex_dept_id = ((dr["ex_dept_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["ex_dept_id"]);
+            return obj;
+        }
+        public examine Select(int ex_id)
+        {
+            return this.Select(ex_id, false, false);
+        }
+        public examine Select(int ex_id, bool bParentTable, bool bChildrenTable)
+        {
+            examine obj = null;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@ex_id",SqlDbType.Int)
+			};
+            param[0].Value = ex_id;
+            string sqlCommand = "examineSelect";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    obj = this.Select(dr);
+                }
+            }
+            this.Select(obj, bParentTable, bChildrenTable);
+            return obj;
+        }
+        public void Select(examine obj, bool bParentTable, bool bChildrenTable)
+        {
+            if (bParentTable)
+            {
+                obj.users = usersBLL.Select(obj.ex_u_id);
+                obj.department = departmentBLL.Select(obj.ex_dept_id);
+            }
+            if (bChildrenTable)
+            {
+            }
+        }
+        public IList<examine> Select(bool bParentTable, bool bChildrenTable)
+        {
+            IList<examine> list = new List<examine>();
+            string sqlCommand = "examineSelectAll";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (examine obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<examine> Select(string where, bool bParentTable, bool bChildrenTable)
+        {
+            IList<examine> list = new List<examine>();
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+			};
+            param[0].Value = where;
+            string sqlCommand = "examineSelectByParams";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (examine obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public void Select(string where, out int recordCount)
+        {
+            string sqlCommand = "examineCountByWhere";
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000),
+			new Sqlcon.warning("@recordCount",SqlDbType.Int)
+			};
+            param[0].Value = where;
+            param[1].Direction = con.warningDirection.Output;
+            SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+            recordCount = Convert.ToInt32(param[1].Value);
+        }
+        public IList<examine> Select(int pageSize, int pageIndex, string where)
+        {
+            return this.Select(pageSize, pageIndex, where, false, false);
+        }
+        public IList<examine> Select(int pageSize, int pageIndex, string where, bool bParentTable, bool bChildrenTable)
+        {
+            IList<examine> list = new List<examine>();
+            string sqlCommand = "examineSelectByPagerParams";
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@pageSize",SqlDbType.Int),
+			new Sqlcon.warning("@pageIndex",SqlDbType.Int),
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+			};
+            param[0].Value = pageSize;
+            param[1].Value = pageIndex;
+            param[2].Value = where;
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (examine obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
