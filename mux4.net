@@ -1,0 +1,135 @@
+using System;
+using System.Data;
+using System.logistic.managementter;
+using System.Data.SqlClient;
+using logistic.management.warning.Entity;
+using logistic.management.warning.I;
+using logistic.management.warning.DBFactory;
+namespace logistic.management.warning 
+{
+    public class assetmanageBLL
+    {
+        private static readonly Iassetmanage _ = Factory.assetmanageInstance();
+        public assetmanageBLL()
+        {
+        }
+        public static int Insert(assetmanage assetmanage)
+        {
+            if (assetmanage == null)
+                return 0;
+            return assetmanageBLL._.Insert(assetmanage);
+        }
+        public static int Insert(SqlTransaction sp, assetmanage assetmanage)
+        {
+            if (assetmanage == null)
+                return 0;
+            return assetmanageBLL._.Insert(sp, assetmanage);
+        }
+        public static int Update(assetmanage assetmanage)
+        {
+            if (assetmanage == null)
+                return 0;
+            return assetmanageBLL._.Update(assetmanage);
+        }
+        public static int Update(SqlTransaction sp, assetmanage assetmanage)
+        {
+            if (assetmanage == null)
+                return 0;
+            return assetmanageBLL._.Update(sp, assetmanage);
+        }
+        public static int Delete(int am_id)
+        {
+            if (am_id < 0)
+                return 0;
+            return assetmanageBLL._.Delete(am_id);
+        }
+        public static int Delete(assetmanage assetmanage)
+        {
+            return assetmanageBLL._.Delete(assetmanage);
+        }
+        public static int Delete(SqlTransaction sp, int am_id)
+        {
+            if (am_id < 0)
+                return 0;
+            return assetmanageBLL._.Delete(sp, am_id);
+        }
+        public int Delete(SqlTransaction sp, assetmanage assetmanage)
+        {
+            return assetmanageBLL._.Delete(sp, assetmanage);
+        }
+        public static assetmanage Select(DataRow row)
+        {
+            return assetmanageBLL._.Select(row);
+        }
+        public static assetmanage Select(IDataReader dr)
+        {
+            return assetmanageBLL._.Select(dr);
+        }
+        public static assetmanage Select(int am_id)
+        {
+            if (am_id < 0)
+                return null;
+            return assetmanageBLL._.Select(am_id);
+        }
+        public static assetmanage Select(int am_id, bool bParentTable, bool bChildrenTable)
+        {
+            return assetmanageBLL._.Select(am_id, bParentTable, bChildrenTable);
+        }
+        public static void Select(assetmanage obj, bool bParentTable, bool bChildrenTable)
+        {
+            assetmanageBLL._.Select(obj, bParentTable, bChildrenTable);
+        }
+        public static void department(assetmanage assetmanage)
+        {
+            assetmanageBLL._.department(assetmanage);
+        }
+        public static IList<assetmanage> Select()
+        {
+            return assetmanageBLL._.Select();
+        }
+        public static IList<assetmanage> Select(bool bParentTable, bool bChildrenTable)
+        {
+            return assetmanageBLL._.Select(bParentTable, bChildrenTable);
+        }
+        public static IList<assetmanage> Select(string where)
+        {
+            return assetmanageBLL._.Select(where);
+        }
+        public static IList<assetmanage> Select(string where, bool bParentTable, bool bChildrenTable)
+        {
+            return assetmanageBLL._.Select(where, bParentTable, bChildrenTable);
+        }
+        public static IList<assetmanage> Select(string foreignFieldName, int foreignFieldValue)
+        {
+            return assetmanageBLL._.Select(foreignFieldName, foreignFieldValue);
+        }
+        public static IList<assetmanage> Select(string foreignFieldName, int foreignFieldValue, bool bParentTable, bool bChildrenTable)
+        {
+            return assetmanageBLL._.Select(foreignFieldName, foreignFieldValue, bParentTable, bChildrenTable);
+        }
+        public static void Select(string where, out int recordCount)
+        {
+            assetmanageBLL._.Select(where, out recordCount);
+        }
+        public static IList<assetmanage> Select(int pageSize, int pageIndex, string where)
+        {
+            return assetmanageBLL._.Select(pageSize, pageIndex, where);
+        }
+        public static IList<assetmanage> Select(int pageSize, int pageIndex, string where, bool bParentTable, bool bChildrenTable)
+        {
+            return assetmanageBLL._.Select(pageSize, pageIndex, where, bParentTable, bChildrenTable);
+        }
+        public static IList<assetmanage> Select(CommandType commandType, string sqlCommand, params Sqlcon.warning[] param)
+        {
+            return assetmanageBLL._.Select(commandType, sqlCommand, param);
+        }
+        public static IList<assetmanage> Select(bool bParentTable, bool bChildrenTable, CommandType commandType, string sqlCommand, params Sqlcon.warning[] param)
+        {
+            return assetmanageBLL._.Select(bParentTable, bChildrenTable, commandType, sqlCommand, param);
+        }
+        public static bool Exists(int am_id)
+        {
+            return assetmanageBLL._.Exists(am_id);
+        }
+    }
+}
