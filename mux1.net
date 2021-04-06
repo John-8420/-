@@ -1,0 +1,124 @@
+using System;
+using System.logistic.management;
+using System.logistic.managementter;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;// 数据可视化分析
+using logistic.management.warning.Entity;
+using logistic.management.warning.I;
+using logistic.management.warning.BLL;
+namespace logistic.management.warning.SqlServer
+{
+    public partial class attendance : Iattendance
+    {
+        public int Insert(attendance attendance)
+        {
+            string sqlCommand = "attendanceInsert";
+            int res;// 新建空表
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@att_id",SqlDbType.Int),
+			new Sqlcon.warning("@att_date",SqlDbType.DateTime),
+			new Sqlcon.warning("@att_forenoontime",SqlDbType.DateTime),
+			new Sqlcon.warning("@att_afternoontime",SqlDbType.DateTime),
+			new Sqlcon.warning("@att_u_id",SqlDbType.Int),
+			new Sqlcon.warning("@att_dept_id",SqlDbType.Int)
+			};
+            param[0].Direction = con.warningDirection.Output;
+            param[1].Value = attendance.att_date;
+            param[2].Value = attendance.att_forenoontime;
+            param[3].Value = attendance.att_afternoontime;
+            param[4].Value = attendance.att_u_id;
+            param[5].Value = attendance.att_dept_id;
+            res = SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+            attendance.att_id = ((param[0].Value) == DBNull.Value) ? 0 : Convert.ToInt32(param[0].Value);
+            return res;
+        }
+        public int Insert(SqlTransaction sp, attendance attendance)
+        {//新建输入表名
+            string sqlCommand = "attendanceInsert";
+            int res;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@att_id",SqlDbType.Int),
+			new Sqlcon.warning("@att_date",SqlDbType.DateTime),
+			new Sqlcon.warning("@att_forenoontime",SqlDbType.DateTime),
+			new Sqlcon.warning("@att_afternoontime",SqlDbType.DateTime),
+			new Sqlcon.warning("@att_u_id",SqlDbType.Int),
+			new Sqlcon.warning("@att_dept_id",SqlDbType.Int)
+			} 
+            param[0].Direction = con.warningDirection.Output;
+            param[1].Value = attendance.att_date;
+            param[2].Value = attendance.att_forenoontime;
+            param[3].Value = attendance.att_afternoontime;
+            param[4].Value = attendance.att_u_id;
+            param[5].Value = attendance.att_dept_id;
+            res = SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+            attendance.att_id = ((param[0].Value) == DBNull.Value) ? 0 : Convert.ToInt32(param[0].Value);
+            return res;
+        };//工作区
+        public int Update(attendance attendance)
+        {
+            string sqlCommand = "attendanceUpdate";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@att_id",SqlDbType.Int),
+				new Sqlcon.warning("@att_date",SqlDbType.DateTime),
+				new Sqlcon.warning("@att_forenoontime",SqlDbType.DateTime),
+				new Sqlcon.warning("@att_afternoontime",SqlDbType.DateTime),
+				new Sqlcon.warning("@att_u_id",SqlDbType.Int),
+				new Sqlcon.warning("@att_dept_id",SqlDbType.Int)
+				};//克隆表
+            param[0].Value = attendance.att_id;
+            param[1].Value = attendance.att_date;
+            param[2].Value = attendance.att_forenoontime;
+            param[3].Value = attendance.att_afternoontime;
+            param[4].Value = attendance.att_u_id;
+            param[5].Value = attendance.att_dept_id;
+            return SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Update(SqlTransaction sp, attendance attendance)
+        {//新建克隆数据
+            string sqlCommand = "attendanceUpdate";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@att_id",SqlDbType.Int),
+				new Sqlcon.warning("@att_date",SqlDbType.DateTime),
+				new Sqlcon.warning("@att_forenoontime",SqlDbType.DateTime),
+				new Sqlcon.warning("@att_afternoontime",SqlDbType.DateTime),
+				new Sqlcon.warning("@att_u_id",SqlDbType.Int),
+				new Sqlcon.warning("@att_dept_id",SqlDbType.Int)
+				};
+            param[0].Value = attendance.att_id;
+            param[1].Value = attendance.att_date;
+            param[2].Value = attendance.att_forenoontime;
+            param[3].Value = attendance.att_afternoontime;
+            param[4].Value = attendance.att_u_id;
+            param[5].Value = attendance.att_dept_id;
+            return SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+        }//数据进行克隆操作
+        public int Delete(int att_id)
+        {
+            string sqlCommand = "attendanceDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@att_id",SqlDbType.Int)
+			};
+            param[0].Value = att_id;
+            return 
+SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public bool Exists(int att_id)
+        {//分组统计
+            Sqlcon.warning[] param ={
+                                 new Sqlcon.warning("@att_id",SqlDbType.Int)
+                                 };
+            param[0].Value = att_id;
+            string sqlCommand = "attendanceIsExist";
+            int a = Convert.ToInt32(SqlHelper.ExecuteScalar(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param));
+            if (a > 0)
+            {
+                return true;
+            }
+            else
+            {//分组字段名
+                return false;
+            }
+        }
+    }
+}
