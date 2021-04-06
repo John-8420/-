@@ -1,0 +1,779 @@
+using System;
+using System.logistic.management;
+using System.logistic.managementter;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text;
+using logistic.management.warning.Entity;
+using logistic.management.warning.I;
+using logistic.management.warning.BLL;
+namespace logistic.management.warning.SqlServer
+{
+    public partial class assetmanage : Iassetmanage
+    {
+        public int Insert(assetmanage assetmanage)
+        {
+            string sqlCommand = "assetmanageInsert";
+            int res;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@am_id",SqlDbType.Int),
+			new Sqlcon.warning("@am_assetname",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_number",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_measureunit",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_scalar",SqlDbType.Int),
+			new Sqlcon.warning("@am_spectype",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_leavefactorynumber",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_artletternumber",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_buyprice",SqlDbType.Fllogistic.management.warning t),
+			new Sqlcon.warning("@am_installcost",SqlDbType.Fllogistic.management.warning t),
+			new Sqlcon.warning("@am_depreciationcost",SqlDbType.Fllogistic.management.warning t),
+			new Sqlcon.warning("@am_betvalue",SqlDbType.Fllogistic.management.warning t),
+			new Sqlcon.warning("@am_production",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_productiondate",SqlDbType.DateTime),
+			new Sqlcon.warning("@am_deliverusetime",SqlDbType.DateTime),
+			new Sqlcon.warning("@am_advanceuseyear",SqlDbType.Int),
+			new Sqlcon.warning("@am_buyordept",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_storageordept",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_purpose",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_dept_id",SqlDbType.Int),
+			new Sqlcon.warning("@am_useaddress",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_usestate",SqlDbType.Int),
+			new Sqlcon.warning("@am_bookerid",SqlDbType.Int),
+			new Sqlcon.warning("@am_remark",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_registertime",SqlDbType.DateTime),
+			new Sqlcon.warning("@am_isscrap",SqlDbType.Int)
+			};
+            param[0].Direction = con.warningDirection.Output;
+            param[1].Value = assetmanage.am_assetname;
+            param[2].Value = assetmanage.am_number;
+            param[3].Value = assetmanage.am_measureunit;
+            param[4].Value = assetmanage.am_scalar;
+            param[5].Value = assetmanage.am_spectype;
+            param[6].Value = assetmanage.am_leavefactorynumber;
+            param[7].Value = assetmanage.am_artletternumber;
+            param[8].Value = assetmanage.am_buyprice;
+            param[9].Value = assetmanage.am_installcost;
+            param[10].Value = assetmanage.am_depreciationcost;
+            param[11].Value = assetmanage.am_betvalue;
+            param[12].Value = assetmanage.am_production;
+            param[13].Value = assetmanage.am_productiondate;
+            param[14].Value = assetmanage.am_deliverusetime;
+            param[15].Value = assetmanage.am_advanceuseyear;
+            param[16].Value = assetmanage.am_buyordept;
+            param[17].Value = assetmanage.am_storageordept;
+            param[18].Value = assetmanage.am_purpose;
+            param[19].Value = assetmanage.am_dept_id;
+            param[20].Value = assetmanage.am_useaddress;
+            param[21].Value = assetmanage.am_usestate;
+            param[22].Value = assetmanage.am_bookerid;
+            param[23].Value = assetmanage.am_remark;
+            param[24].Value = assetmanage.am_registertime;
+            param[25].Value = assetmanage.am_isscrap;
+            res = SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+            assetmanage.am_id = ((param[0].Value) == DBNull.Value) ? 0 : Convert.ToInt32(param[0].Value);
+            return res;
+        }
+        public int Insert(SqlTransaction sp, assetmanage assetmanage)
+        {
+            string sqlCommand = "assetmanageInsert";
+            int res;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@am_id",SqlDbType.Int),
+			new Sqlcon.warning("@am_assetname",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_number",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_measureunit",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_scalar",SqlDbType.Int),
+			new Sqlcon.warning("@am_spectype",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_leavefactorynumber",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_artletternumber",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_buyprice",SqlDbType.Fllogistic.management.warning t),
+			new Sqlcon.warning("@am_installcost",SqlDbType.Fllogistic.management.warning t),
+			new Sqlcon.warning("@am_depreciationcost",SqlDbType.Fllogistic.management.warning t),
+			new Sqlcon.warning("@am_betvalue",SqlDbType.Fllogistic.management.warning t),
+			new Sqlcon.warning("@am_production",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_productiondate",SqlDbType.DateTime),
+			new Sqlcon.warning("@am_deliverusetime",SqlDbType.DateTime),
+			new Sqlcon.warning("@am_advanceuseyear",SqlDbType.Int),
+			new Sqlcon.warning("@am_buyordept",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_storageordept",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_purpose",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_dept_id",SqlDbType.Int),
+			new Sqlcon.warning("@am_useaddress",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_usestate",SqlDbType.Int),
+			new Sqlcon.warning("@am_bookerid",SqlDbType.Int),
+			new Sqlcon.warning("@am_remark",SqlDbType.VarChar),
+			new Sqlcon.warning("@am_registertime",SqlDbType.DateTime),
+			new Sqlcon.warning("@am_isscrap",SqlDbType.Int)
+			};
+            param[0].Direction = con.warningDirection.Output;
+            param[1].Value = assetmanage.am_assetname;
+            param[2].Value = assetmanage.am_number;
+            param[3].Value = assetmanage.am_measureunit;
+            param[4].Value = assetmanage.am_scalar;
+            param[5].Value = assetmanage.am_spectype;
+            param[6].Value = assetmanage.am_leavefactorynumber;
+            param[7].Value = assetmanage.am_artletternumber;
+            param[8].Value = assetmanage.am_buyprice;
+            param[9].Value = assetmanage.am_installcost;
+            param[10].Value = assetmanage.am_depreciationcost;
+            param[11].Value = assetmanage.am_betvalue;
+            param[12].Value = assetmanage.am_production;
+            param[13].Value = assetmanage.am_productiondate;
+            param[14].Value = assetmanage.am_deliverusetime;
+            param[15].Value = assetmanage.am_advanceuseyear;
+            param[16].Value = assetmanage.am_buyordept;
+            param[17].Value = assetmanage.am_storageordept;
+            param[18].Value = assetmanage.am_purpose;
+            param[19].Value = assetmanage.am_dept_id;
+            param[20].Value = assetmanage.am_useaddress;
+            param[21].Value = assetmanage.am_usestate;
+            param[22].Value = assetmanage.am_bookerid;
+            param[23].Value = assetmanage.am_remark;
+            param[24].Value = assetmanage.am_registertime;
+            param[25].Value = assetmanage.am_isscrap;
+            res = SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+            assetmanage.am_id = ((param[0].Value) == DBNull.Value) ? 0 : Convert.ToInt32(param[0].Value);
+            return res;
+        }
+        public int Update(assetmanage assetmanage)
+        {
+            string sqlCommand = "assetmanageUpdate";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@am_id",SqlDbType.Int),
+				new Sqlcon.warning("@am_assetname",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_number",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_measureunit",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_scalar",SqlDbType.Int),
+				new Sqlcon.warning("@am_spectype",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_leavefactorynumber",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_artletternumber",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_buyprice",SqlDbType.Fllogistic.management.warning t),
+				new Sqlcon.warning("@am_installcost",SqlDbType.Fllogistic.management.warning t),
+				new Sqlcon.warning("@am_depreciationcost",SqlDbType.Fllogistic.management.warning t),
+				new Sqlcon.warning("@am_betvalue",SqlDbType.Fllogistic.management.warning t),
+				new Sqlcon.warning("@am_production",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_productiondate",SqlDbType.DateTime),
+				new Sqlcon.warning("@am_deliverusetime",SqlDbType.DateTime),
+				new Sqlcon.warning("@am_advanceuseyear",SqlDbType.Int),
+				new Sqlcon.warning("@am_buyordept",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_storageordept",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_purpose",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_dept_id",SqlDbType.Int),
+				new Sqlcon.warning("@am_useaddress",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_usestate",SqlDbType.Int),
+				new Sqlcon.warning("@am_bookerid",SqlDbType.Int),
+				new Sqlcon.warning("@am_remark",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_registertime",SqlDbType.DateTime),
+				new Sqlcon.warning("@am_isscrap",SqlDbType.Int)
+				};
+            param[0].Value = assetmanage.am_id;
+            param[1].Value = assetmanage.am_assetname;
+            param[2].Value = assetmanage.am_number;
+            param[3].Value = assetmanage.am_measureunit;
+            param[4].Value = assetmanage.am_scalar;
+            param[5].Value = assetmanage.am_spectype;
+            param[6].Value = assetmanage.am_leavefactorynumber;
+            param[7].Value = assetmanage.am_artletternumber;
+            param[8].Value = assetmanage.am_buyprice;
+            param[9].Value = assetmanage.am_installcost;
+            param[10].Value = assetmanage.am_depreciationcost;
+            param[11].Value = assetmanage.am_betvalue;
+            param[12].Value = assetmanage.am_production;
+            param[13].Value = assetmanage.am_productiondate;
+            param[14].Value = assetmanage.am_deliverusetime;
+            param[15].Value = assetmanage.am_advanceuseyear;
+            param[16].Value = assetmanage.am_buyordept;
+            param[17].Value = assetmanage.am_storageordept;
+            param[18].Value = assetmanage.am_purpose;
+            param[19].Value = assetmanage.am_dept_id;
+            param[20].Value = assetmanage.am_useaddress;
+            param[21].Value = assetmanage.am_usestate;
+            param[22].Value = assetmanage.am_bookerid;
+            param[23].Value = assetmanage.am_remark;
+            param[24].Value = assetmanage.am_registertime;
+            param[25].Value = assetmanage.am_isscrap;
+            return SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Update(SqlTransaction sp, assetmanage assetmanage)
+        {
+            string sqlCommand = "assetmanageUpdate";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@am_id",SqlDbType.Int),
+				new Sqlcon.warning("@am_assetname",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_number",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_measureunit",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_scalar",SqlDbType.Int),
+				new Sqlcon.warning("@am_spectype",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_leavefactorynumber",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_artletternumber",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_buyprice",SqlDbType.Fllogistic.management.warning t),
+				new Sqlcon.warning("@am_installcost",SqlDbType.Fllogistic.management.warning t),
+				new Sqlcon.warning("@am_depreciationcost",SqlDbType.Fllogistic.management.warning t),
+				new Sqlcon.warning("@am_betvalue",SqlDbType.Fllogistic.management.warning t),
+				new Sqlcon.warning("@am_production",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_productiondate",SqlDbType.DateTime),
+				new Sqlcon.warning("@am_deliverusetime",SqlDbType.DateTime),
+				new Sqlcon.warning("@am_advanceuseyear",SqlDbType.Int),
+				new Sqlcon.warning("@am_buyordept",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_storageordept",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_purpose",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_dept_id",SqlDbType.Int),
+				new Sqlcon.warning("@am_useaddress",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_usestate",SqlDbType.Int),
+				new Sqlcon.warning("@am_bookerid",SqlDbType.Int),
+				new Sqlcon.warning("@am_remark",SqlDbType.VarChar),
+				new Sqlcon.warning("@am_registertime",SqlDbType.DateTime),
+				new Sqlcon.warning("@am_isscrap",SqlDbType.Int)
+				};
+            param[0].Value = assetmanage.am_id;
+            param[1].Value = assetmanage.am_assetname;
+            param[2].Value = assetmanage.am_number;
+            param[3].Value = assetmanage.am_measureunit;
+            param[4].Value = assetmanage.am_scalar;
+            param[5].Value = assetmanage.am_spectype;
+            param[6].Value = assetmanage.am_leavefactorynumber;
+            param[7].Value = assetmanage.am_artletternumber;
+            param[8].Value = assetmanage.am_buyprice;
+            param[9].Value = assetmanage.am_installcost;
+            param[10].Value = assetmanage.am_depreciationcost;
+            param[11].Value = assetmanage.am_betvalue;
+            param[12].Value = assetmanage.am_production;
+            param[13].Value = assetmanage.am_productiondate;
+            param[14].Value = assetmanage.am_deliverusetime;
+            param[15].Value = assetmanage.am_advanceuseyear;
+            param[16].Value = assetmanage.am_buyordept;
+            param[17].Value = assetmanage.am_storageordept;
+            param[18].Value = assetmanage.am_purpose;
+            param[19].Value = assetmanage.am_dept_id;
+            param[20].Value = assetmanage.am_useaddress;
+            param[21].Value = assetmanage.am_usestate;
+            param[22].Value = assetmanage.am_bookerid;
+            param[23].Value = assetmanage.am_remark;
+            param[24].Value = assetmanage.am_registertime;
+            param[25].Value = assetmanage.am_isscrap;
+            return SqlHelper.ExecuteNonQuery(sp, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public int Delete(int am_id)
+        {
+            string sqlCommand = "assetmanageDelete";
+            Sqlcon.warning[] param ={
+				new Sqlcon.warning("@am_id",SqlDbType.Int)
+			};
+            param[0].Value = am_id;
+            return SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+        }
+        public assetmanage Select(int am_id)
+        public bool Exists(int dept_id)
+        {
+            Sqlcon.warning[] param =
+{
+                                 new Sqlcon.warning("@dept_id",SqlDbType.Int)
+                                 };
+            param[0].Value = dept_id;
+            string sqlCommand = "departmentIsExist";
+            int a = Convert.ToInt32(SqlHelper.ExecuteScalar(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param));
+            if (a > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
+  public addresslist Select(IDataReader dr)
+        {
+            addresslist obj = new addresslist();
+            obj.al_id = ((dr["al_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["al_id"]);
+            obj.al_u_id = ((dr["al_u_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["al_u_id"]);
+            obj.al_dept_id = ((dr["al_dept_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["al_dept_id"]);
+            obj.al_duty = dr["al_duty"].ToString();
+            obj.al_mobile = dr["al_mobile"].ToString();
+            obj.al_smallclever = dr["al_smallclever"].ToString();
+            obj.al_worktelephone = dr["al_worktelephone"].ToString();
+            obj.al_extension = dr["al_extension"].ToString();
+            obj.al_fax = dr["al_fax"].ToString();
+            obj.al_email = dr["al_email"].ToString();
+            obj.al_qq = dr["al_qq"].ToString();
+            obj.al_msn = dr["al_msn"].ToString();
+            obj.al_address = dr["al_address"].ToString();
+            obj.al_remark = dr["al_remark"].ToString();
+            return obj;
+        }
+        public addresslist Select(int al_id)
+        {
+            return this.Select(al_id, false, false);
+        }
+        public addresslist Select(int al_id, bool bParentTable, bool bChildrenTable)
+        {
+            addresslist obj = null;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@al_id",SqlDbType.Int)
+			};
+            param[0].Value = al_id;
+            string sqlCommand = "addresslistSelect";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    obj = this.Select(dr);
+                }
+            }
+            this.Select(obj, bParentTable, bChildrenTable);
+            return obj;
+        }
+        public void Select(addresslist obj, bool bParentTable, bool bChildrenTable)
+        {
+            if (bParentTable)
+            {
+                obj.users = usersBLL.Select(obj.al_u_id);
+                obj.department = departmentBLL.Select(obj.al_dept_id);
+            }
+            if (bChildrenTable)
+            {
+            }
+        }
+        public void users(addresslist addresslist)
+        {
+            addresslist.users = usersBLL.Select(addresslist.al_u_id);
+        }
+        public void department(addresslist addresslist)
+        {
+            addresslist.department = departmentBLL.Select(addresslist.al_dept_id);
+        }
+        public IList<addresslist> Select()
+        {
+            return this.Select(false, false);
+        }
+        public IList<addresslist> Select(bool bParentTable, bool bChildrenTable)
+        {
+            IList<addresslist> list = new List<addresslist>();
+            string sqlCommand = "addresslistSelectAll";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (addresslist obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<addresslist> Select(string where)
+        {
+            return this.Select(where, false, false);
+        }
+        public IList<addresslist> Select(string where, bool bParentTable, bool bChildrenTable)
+        {
+            IList<addresslist> list = new List<addresslist>();
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+			};
+            param[0].Value = where;
+            string sqlCommand = "addresslistSelectByParams";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (addresslist obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<addresslist> Select(string foreignFieldName, int foreignFieldValue)
+        {
+            return this.Select(foreignFieldName, foreignFieldValue, false, false);
+        }
+        public IList<addresslist> Select(string foreignFieldName, int foreignFieldValue, bool bParentTable, bool bChildrenTable)
+        {
+            return this.Select(string.Format("{0}='{1}'", foreignFieldName, foreignFieldValue), bParentTable, bChildrenTable);
+        }
+        public void Select(string where, out int recordCount)
+        {
+            string sqlCommand = "addresslistCountByWhere";
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000),
+			new Sqlcon.warning("@recordCount",SqlDbType.Int)
+			};
+            param[0].Value = where;
+            param[1].Direction = con.warningDirection.Output;
+            SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+            recordCount = Convert.ToInt32(param[1].Value);
+        }
+        public IList<addresslist> Select(int pageSize, int pageIndex, string where)
+        {
+            return this.Select(pageSize, pageIndex, where, false, false);
+        }
+        public IList<addresslist> Select(int pageSize, int pageIndex, string where, bool bParentTable, bool bChildrenTable)
+        {
+            IList<addresslist> list = new List<addresslist>();
+            string sqlCommand = "addresslistSelectByPagerParams";
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@pageSize",SqlDbType.Int),
+			new Sqlcon.warning("@pageIndex",SqlDbType.Int),
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+			};
+            param[0].Value = pageSize;
+            param[1].Value = pageIndex;
+            param[2].Value = where;
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (addresslist obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<addresslist> Select(CommandType commandType, string sqlCommand, params Sqlcon.warning[] param)
+        {
+            return this.Select(false, false, commandType, sqlCommand, param);
+        }
+        public IList<addresslist> Select(bool bParentTable, bool bChildrenTable, CommandType commandType, string sqlCommand, params Sqlcon.warning[] param)
+        {
+            IList<addresslist> list = new List<addresslist>();
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, commandType, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (addresslist obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public bool Exists(int al_id)
+        {
+            Sqlcon.warning[] param ={
+                                 new Sqlcon.warning("@al_id",SqlDbType.Int)
+                                 };
+            param[0].Value = al_id;
+            string sqlCommand = "addresslistIsExist";
+            int a = Convert.ToInt32(SqlHelper.ExecuteScalar(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param));
+            if (a > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
+  public addresslist Select(IDataReader dr)
+        {
+            addresslist obj = new addresslist();
+            obj.al_id = ((dr["al_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["al_id"]);
+            obj.al_u_id = ((dr["al_u_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["al_u_id"]);
+            obj.al_dept_id = ((dr["al_dept_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["al_dept_id"]);
+            obj.al_duty = dr["al_duty"].ToString();
+            obj.al_mobile = dr["al_mobile"].ToString();
+            obj.al_smallclever = dr["al_smallclever"].ToString();
+            obj.al_worktelephone = dr["al_worktelephone"].ToString();
+            obj.al_extension = dr["al_extension"].ToString();
+            obj.al_fax = dr["al_fax"].ToString();
+            obj.al_email = dr["al_email"].ToString();
+            obj.al_qq = dr["al_qq"].ToString();
+            obj.al_msn = dr["al_msn"].ToString();
+            obj.al_address = dr["al_address"].ToString();
+            obj.al_remark = dr["al_remark"].ToString();
+            return obj;
+        }
+        public addresslist Select(int al_id)
+        {
+            return this.Select(al_id, false, false);
+        }
+        public addresslist Select(int al_id, bool bParentTable, bool bChildrenTable)
+        {
+            addresslist obj = null;
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@al_id",SqlDbType.Int)
+			};
+            param[0].Value = al_id;
+            string sqlCommand = "addresslistSelect";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    obj = this.Select(dr);
+                }
+            }
+            this.Select(obj, bParentTable, bChildrenTable);
+            return obj;
+        }
+        public void Select(addresslist obj, bool bParentTable, bool bChildrenTable)
+        {
+            if (bParentTable)
+            {
+                obj.users = usersBLL.Select(obj.al_u_id);
+                obj.department = departmentBLL.Select(obj.al_dept_id);
+            }
+            if (bChildrenTable)
+            {
+            }
+        }
+        public void users(addresslist addresslist)
+        {
+            addresslist.users = usersBLL.Select(addresslist.al_u_id);
+        }
+        public void department(addresslist addresslist)
+        {
+            addresslist.department = departmentBLL.Select(addresslist.al_dept_id);
+        }
+        public IList<addresslist> Select()
+        {
+            return this.Select(false, false);
+        }
+        public IList<addresslist> Select(bool bParentTable, bool bChildrenTable)
+        {
+            IList<addresslist> list = new List<addresslist>();
+            string sqlCommand = "addresslistSelectAll";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (addresslist obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<addresslist> Select(string where)
+        {
+            return this.Select(where, false, false);
+        }
+        public IList<addresslist> Select(string where, bool bParentTable, bool bChildrenTable)
+        {
+            IList<addresslist> list = new List<addresslist>();
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+			};
+            param[0].Value = where;
+            string sqlCommand = "addresslistSelectByParams";
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (addresslist obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<addresslist> Select(string foreignFieldName, int foreignFieldValue)
+        {
+            return this.Select(foreignFieldName, foreignFieldValue, false, false);
+        }
+        public IList<addresslist> Select(string foreignFieldName, int foreignFieldValue, bool bParentTable, bool bChildrenTable)
+        {
+            return this.Select(string.Format("{0}='{1}'", foreignFieldName, foreignFieldValue), bParentTable, bChildrenTable);
+        }
+        public void Select(string where, out int recordCount)
+        {
+            string sqlCommand = "addresslistCountByWhere";
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000),
+			new Sqlcon.warning("@recordCount",SqlDbType.Int)
+			};
+            param[0].Value = where;
+            param[1].Direction = con.warningDirection.Output;
+            SqlHelper.ExecuteNonQuery(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param);
+            recordCount = Convert.ToInt32(param[1].Value);
+        }
+        public IList<addresslist> Select(int pageSize, int pageIndex, string where)
+        {
+            return this.Select(pageSize, pageIndex, where, false, false);
+        }
+        public IList<addresslist> Select(int pageSize, int pageIndex, string where, bool bParentTable, bool bChildrenTable)
+        {
+            IList<addresslist> list = new List<addresslist>();
+            string sqlCommand = "addresslistSelectByPagerParams";
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@pageSize",SqlDbType.Int),
+			new Sqlcon.warning("@pageIndex",SqlDbType.Int),
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+			};
+            param[0].Value = pageSize;
+            param[1].Value = pageIndex;
+            param[2].Value = where;
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (addresslist obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public IList<addresslist> Select(CommandType commandType, string sqlCommand, params Sqlcon.warning[] param)
+        {
+            return this.Select(false, false, commandType, sqlCommand, param);
+        }//分组
+        public IList<addresslist> Select(bool bParentTable, bool bChildrenTable, CommandType commandType, string sqlCommand, params Sqlcon.warning[] param)
+        {
+            IList<addresslist> list = new List<addresslist>();
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, commandType, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }//数据进行收集
+            foreach (addresslist obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public bool Exists(int al_id)
+        {//分组进行交互
+            Sqlcon.warning[] param ={
+                                 new Sqlcon.warning("@al_id",SqlDbType.Int)
+                                 };
+            param[0].Value = al_id;
+            string sqlCommand = "addresslistIsExist";
+            int a = Convert.ToInt32(SqlHelper.ExecuteScalar(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param));
+            if (a > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
+  public addresslist Select(IDataReader dr)
+        {
+            addresslist obj = new addresslist();
+            obj.al_id = ((dr["al_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["al_id"]);
+            obj.al_u_id = ((dr["al_u_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["al_u_id"]);
+            obj.al_dept_id = ((dr["al_dept_id"]) == DBNull.Value) ? 0 : Convert.ToInt32(dr["al_dept_id"]);
+            obj.al_duty = dr["al_duty"].ToString();
+            obj.al_mobile = dr["al_mobile"].ToString();
+            obj.al_smallclever = dr["al_smallclever"].ToString();
+            obj.al_worktelephone = dr["al_worktelephone"].ToString();
+            obj.al_extension = dr["al_extension"].ToString();
+            obj.al_fax = dr["al_fax"].ToString();
+            obj.al_email = dr["al_email"].ToString();
+            obj.al_qq = dr["al_qq"].ToString();
+            obj.al_msn = dr["al_msn"].ToString();
+            obj.al_address = dr["al_address"].ToString();
+            obj.al_remark = dr["al_remark"].ToString();
+            return obj;
+        }//交互分析
+        public IList<addresslist> Select(int pageSize, int pageIndex, string where, bool bParentTable, bool bChildrenTable)
+        {
+            IList<addresslist> list = new List<addresslist>();
+            string sqlCommand = "addresslistSelectByPagerParams";
+            Sqlcon.warning[] param =
+{//清空代码
+			new Sqlcon.warning("@pageSize",SqlDbType.Int),
+			new Sqlcon.warning("@pageIndex",SqlDbType.Int),
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+			};
+            param[0].Value = pageSize;
+            param[1].Value = pageIndex;
+            param[2].Value = where;
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (addresslist obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }//折线图
+            return list;
+        }
+   public IList<addresslist> Select(int pageSize, int pageIndex, string where, bool bParentTable, bool bChildrenTable)
+        {
+            IList<addresslist> list = new List<addresslist>();
+            string sqlCommand = "addresslistSelectByPagerParams";
+            Sqlcon.warning[] param ={
+			new Sqlcon.warning("@pageSize",SqlDbType.Int),
+			new Sqlcon.warning("@pageIndex",SqlDbType.Int),
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+new Sqlcon.warning("@pageIndex",SqlDbType.Int),
+			new Sqlcon.warning("@where",SqlDbType.VarChar,8000)
+			};
+            param[0].Value = pageSize;
+            param[1].Value = pageIndex;
+            param[2].Value = where;
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+  list.Add(this.Select(txt));
+                }
+            }
+        public IList<addresslist> Select(CommandType commandType, string sqlCommand, params Sqlcon.warning[] param)
+        {//修改数据源
+            return this.Select(false, false, commandType, sqlCommand, param);
+        }
+        public IList<addresslist> Select(bool bParentTable, bool bChildrenTable, CommandType commandType, string sqlCommand, params Sqlcon.warning[] param)
+        {
+            using (SqlDataReader dr = SqlHelper.ExecuteReader(Conn.SqlConn, commandType, sqlCommand, param))
+            {
+                while (dr.Read())
+                {
+                    list.Add(this.Select(dr));
+                }
+            }
+            foreach (addresslist obj in list)
+            {
+                this.Select(obj, bParentTable, bChildrenTable);
+            }
+            return list;
+        }
+        public bool Exists(int al_id)
+        {
+            Sqlcon.warning[] param =
+{//数据库查询
+                                 new Sqlcon.warning("@al_id",SqlDbType.Int)
+                                 };
+            param[0].Value = al_id;
+            string sqlCommand = "addresslistIsExist";
+            int a = Convert.ToInt32(SqlHelper.ExecuteScalar(Conn.SqlConn, CommandType.StoredProcedure, sqlCommand, param));//查询语句
+            if (a > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
